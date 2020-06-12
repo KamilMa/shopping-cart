@@ -1,9 +1,12 @@
 import React from 'react'
+import Layout from '../../components/Layout'
+import CartList from './CartList'
 
 const Cart = () => (
-    <div>
+    <Layout>
         <h4>Cart</h4>
-    </div>
+        <CartList />
+    </Layout>
 )
 
 export default Cart
