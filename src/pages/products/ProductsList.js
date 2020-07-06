@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ProductItem from './ProductItem'
 import { ProductsContext } from '../../context/ProductsContext'
+
 import styles from './ProductsList.module.scss'
 
 const ProductsList = () => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import ProductsList from './ProductsList'
+import ProductsContextProvider from '../../context/CartContext'
 // import ProductsContextProvider from '../../context/ProductsContext'
 
 const ProductsPage = () => (
@@ -9,7 +10,9 @@ const ProductsPage = () => (
         <div>
             <h4>Products</h4>
         </div>
-        <ProductsList />
+        <ProductsContextProvider>
+            <ProductsList />
+        </ProductsContextProvider>
     </Layout>
     // </ProductsContextProvider>
 )
