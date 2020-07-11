@@ -8,7 +8,7 @@ const initialState = { cartItems: [] }
 
 const CartContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initialState)
-    console.log(state)
+    // console.log(state)
     const addToCart = payload => {
         dispatch({ type: ADD_PRODUCT, payload })
     }
@@ -26,7 +26,9 @@ const CartContextProvider = ({ children }) => {
     }
 
     const contextValue = {
-        addToCart: addToCart,
+        addToCart,
+        removeFromCart,
+        increase,
         ...state
     }
 

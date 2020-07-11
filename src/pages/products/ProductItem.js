@@ -3,7 +3,7 @@ import { CartContext } from '../../context/CartContext'
 
 const ProductItem = ({ product }) => {
 
-    const { addToCart } = useContext(CartContext)
+    const { addToCart, removeFromCart, increase } = useContext(CartContext)
 
     return (
         <div className="card">
@@ -16,7 +16,16 @@ const ProductItem = ({ product }) => {
                     <h5 className="text-success">$ {product.price}</h5>
                     <button
                         onClick={() => addToCart(product)}
-                        className="btn btn-primary">Add to card</button>
+                        className="btn btn-primary">Add to card
+                    </button>
+                    <button
+                        onClick={() => removeFromCart(product.id)}
+                        className="btn btn-primary">ARemoveto card
+                    </button>
+                    <button
+                        onClick={() => increase(product.id)}
+                        className="btn btn-primary">Increase card
+                    </button>
                 </div>
             </div>
         </div>
