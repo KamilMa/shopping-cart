@@ -2,51 +2,68 @@ import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE, DECREASE } from './actionTypes'
 
 export const CartReducer = (state, action) => {
 
+    const addProductToCart = (product, state) => {
+        const newCartItems = [...state.cartItems]
+
+        if (!newCartItems.find(item => item.id === product.id)) {
+            newCartItems.push({
+                ...product,
+                quantity: 1
+            })
+        }
+
+        return {
+            ...state,
+            cartItems: newCartItems
+        }
+    }
+
+    const removeProductFromCart = (productId, state) => {
+
+        return {
+            ...state,
+            cartItems: state.cartItems.filter(item => item.id !== productId)
+        }
+    }
+
+    const increaseQuantity = (productId, state) => {
+        const newCartItems = [...state.cartItems]
+        const index = newCartItems.findIndex(item => item.id === productId)
+        const newItem = { ...newCartItems[index] }
+        newItem.quantity++
+        newCartItems[index] = newItem
+
+        return {
+            ...state,
+            cartItems: newCartItems
+        }
+    }
+
+    const decreaseQuantity = (productId, state) => {
+        const newCartItems = [...state.cartItems]
+        const index = newCartItems.findIndex(item => item.id === productId)
+        const newItem = { ...newCartItems[index] }
+        newItem.quantity--
+
+        return {
+            ...state,
+            cartItems: newCartItems
+        }
+    }
+
     switch (action.type) {
         case ADD_PRODUCT:
-            const newCartItems = [...state.cartItems]
+            return addProductToCart(action.payload, state)
 
-            if (!newCartItems.find(item => item.id === action.payload.id)) {
-                newCartItems.push({
-                    ...action.payload,
-                    quantity: 1
-                })
-            }
-
-            return {
-                ...state,
-                cartItems: newCartItems
-            }
         case REMOVE_PRODUCT:
-
-            return {
-                ...state,
-                cartItems: state.cartItems.filter(item => item.id !== action.payload)
-            }
+            return removeProductFromCart(action.payload, state)
 
         case INCREASE:
-            const newCartItemsInc = [...state.cartItems]
-            const index = newCartItemsInc.findIndex(item => item.id === action.payload)
-            const newItem = { ...newCartItemsInc[index] }
-            newItem.quantity++
-
-            newCartItemsInc[index] = newItem
-            // console.log("start state")
-            // console.log(state.cartItems)
-            // console.log("end state")
-            // console.log("start newState")
-            // console.log(newCartItemsInc)
-            // console.log("end newState")
-
-            return {
-                ...state,
-                cartItems: newCartItemsInc
-            }
+            return increaseQuantity(action.payload, state)
 
         case DECREASE:
-            return {
+            return decreaseQuantity(action.payload, state)
 
-            }
         default:
             return state
     }
