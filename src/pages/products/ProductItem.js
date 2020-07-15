@@ -18,14 +18,6 @@ const ProductItem = ({ product }) => {
                         onClick={() => addToCart(product)}
                         className="btn btn-primary">Add to card
                     </button>
-                    <button
-                        onClick={() => removeFromCart(product.id)}
-                        className="btn btn-primary">ARemoveto card
-                    </button>
-                    <button
-                        onClick={() => increase(product.id)}
-                        className="btn btn-primary">Increase card
-                    </button>
                 </div>
             </div>
         </div>
