@@ -3,6 +3,7 @@ import { CartContext } from '../../context/CartContext'
 
 const CartItem = ({ item }) => {
     const { removeFromCart, increase, decrease } = useContext(CartContext)
+    const buttonStyle = { fontSize: "11px", color: "red" }
 
     return (
         <div className="card">
@@ -18,12 +19,20 @@ const CartItem = ({ item }) => {
                         <h6>$26</h6>
                     </div>
                     <div className="col-12 col-md-4 text-center d-flex align-items-center">
-                        <input type="number" step="1" max="99" min="1" value="1" title="Qty" className="qty" size="4" />
+                        <h6>Quantity {item.quantity}</h6>
                         <button
-                            onClick={() => removeFromCart(item.id)}
-                            style={{ fontSize: "12px" }}
-                            className="btn btn-danger ml-2">
-                            <i class="fa fa-trash fa-xs" aria-hidden="true"></i>
+                            style={buttonStyle}
+                            className="btn btn-danger-outline ml-3"
+                            onClick={() => increase(item.id)}
+                        >
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </button>
+                        <button
+                            style={buttonStyle}
+                            className="btn btn-danger-outline"
+                            onClick={() => decrease(item.id)}
+                        >
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>

@@ -11,17 +11,26 @@ const CartList = () => {
                 {cartItems.map(item => (
                     <CartItem key={item.id} item={item} />))
                 }
+                {console.log(cartItems)}
             </div>
             <div className="col-12 col-md-3">
                 <div className="card">
                     <div className="card-body">
-                        <h4>Total Items</h4>
+                        <h4>Total Products</h4>
+                        <div className="">
+                            {
+                                cartItems.reduce((prev, curr) => prev + curr.quantity, 0)
+                            }
+                        </div>
                         <h5>Total price</h5>
+                        <div className="">
+                            ${
+                                cartItems.map(prod => prod.quantity * prod.price).reduce((prev, curr) => prev + curr, 0)
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }

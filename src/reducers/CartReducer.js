@@ -43,7 +43,12 @@ export const CartReducer = (state, action) => {
         const newCartItems = [...state.cartItems]
         const index = newCartItems.findIndex(item => item.id === productId)
         const newItem = { ...newCartItems[index] }
-        newItem.quantity--
+        if (newItem.quantity <= 0) {
+            newItem.quantity = 0
+        } else {
+            newItem.quantity--
+        }
+        newCartItems[index] = newItem
 
         return {
             ...state,
