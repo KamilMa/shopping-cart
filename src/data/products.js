@@ -5,7 +5,7 @@ export const productsData = [
         price: 9.15,
         size: "XL",
         description: "Duis aute irure dolor in reprehenderit in voluptate.",
-        image: "/img/1.jpg",
+        image: "/img/1.jpg"
     },
     {
         id: 2,

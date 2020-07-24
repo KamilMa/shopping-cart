@@ -7,7 +7,7 @@ import ProductsContextProvider from '../../context/ProductsContext'
 const ProductsPage = () => (
     <ProductsContextProvider>
         <Layout>
-            <div>
+            <div className="col-12 text-left">
                 <h4>Products</h4>
             </div>
             {/* <ProductsContextProvider> */}

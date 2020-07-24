@@ -5,7 +5,7 @@ import styles from './footer.module.scss'
 
 const Footer = () => (
     <footer>
-        2020 &copy; Shooping Cart
+        2020 &copy; Shopping Cart
     </footer>
 )
 

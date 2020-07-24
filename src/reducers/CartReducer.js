@@ -1,5 +1,10 @@
 import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE, DECREASE } from './actionTypes'
 
+export const totalProducts = cartItems => {
+    let total = cartItems.reduce((prev, curr) => prev + curr.quantity, 0)
+    return { total }
+}
+
 export const CartReducer = (state, action) => {
 
     const addProductToCart = (product, state) => {
@@ -14,15 +19,17 @@ export const CartReducer = (state, action) => {
 
         return {
             ...state,
+            ...totalProducts(newCartItems),
             cartItems: newCartItems
         }
     }
 
     const removeProductFromCart = (productId, state) => {
-
+        const cartItems = state.cartItems.filter(item => item.id !== productId)
         return {
             ...state,
-            cartItems: state.cartItems.filter(item => item.id !== productId)
+            ...totalProducts(cartItems),
+            cartItems
         }
     }
 
@@ -35,6 +42,7 @@ export const CartReducer = (state, action) => {
 
         return {
             ...state,
+            ...totalProducts(newCartItems),
             cartItems: newCartItems
         }
     }
@@ -52,6 +60,7 @@ export const CartReducer = (state, action) => {
 
         return {
             ...state,
+            ...totalProducts(newCartItems),
             cartItems: newCartItems
         }
     }
