@@ -6,44 +6,44 @@ const CartItem = ({ item }) => {
     const buttonStyle = { fontSize: "11px", color: "red" }
 
     return (
-        <div className="card">
-            <div className="card-body">
-                <div className="d-flex flex-row align-items-center">
-                    <div className="col-12 col-md-2 text-center nakl">
-                        <img src={item.image} className="img-fluid" />
-                    </div>
-                    <div className="col-12 col-md-4 text-center nakl">
-                        <h4 className="product-name">{item.title}</h4>
-                    </div>
-                    <div className="col-12 col-md-2 d-flex align-items-center justify-content-around nakl">
-                        <h6>{item.quantity} x $26</h6>
-                    </div>
-                    <div className="col-12 col-md-2 text-center d-flex align-items-center justify-content-center nakl">
-                        <button
-                            style={buttonStyle}
-                            className="btn btn-danger-outline"
-                            onClick={() => increase(item.id)}
-                        >
-                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                        </button>
-                        <button
-                            style={buttonStyle}
-                            className="btn btn-danger-outline"
-                            onClick={() => decrease(item.id)}
-                        >
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                    <div className="col-12 col-md-2 text-center d-flex align-items-center justify-content-center nakl">
-                        <button
-                            style={buttonStyle}
-                            className="btn btn-danger-outline"
-                            onClick={() => removeFromCart(item.id)}
-                        >
-                            <i class="far fa-trash-alt" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
+        <div className="row item-wrapper py-3 my-3 my-md-2">
+            <div className="col-6 col-md-2 mb-4 mb-md-0 text-center">
+                <img src={item.image} className="img-fluid" alt="product" />
+            </div>
+            <div className="col-6 col-md-4 d-md-flex flex-column justify-content-center">
+                <h4 className="product-name text-left">{item.title}</h4>
+                <p className="text-left">{item.description}</p>
+            </div>
+            <div className="col-4 col-md-2 text-center d-md-flex item-quantity align-items-center justify-content-around">
+                <span className="d-block d-md-none">Quantity</span>
+                <h6 className="d-block">{item.quantity} x ${item.price}</h6>
+            </div>
+            <div className="col-4 col-md-2 text-center item-increase d-md-flex align-items-center justify-content-center">
+                <span className="d-block d-md-none">Inc/Dcs</span>
+                <button
+                    style={buttonStyle}
+                    className="btn btn-danger-outline"
+                    onClick={() => increase(item.id)}
+                >
+                    <i className="fa fa-arrow-up" aria-hidden="true"></i>
+                </button>
+                <button
+                    style={buttonStyle}
+                    className="btn btn-danger-outline"
+                    onClick={() => decrease(item.id)}
+                >
+                    <i className="fa fa-arrow-down" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div className="col-4 col-md-2 text-center item-remove d-md-flex align-items-center justify-content-center">
+                <span className="d-block d-md-none">Usuń</span>
+                <button
+                    style={buttonStyle}
+                    className="btn btn-danger-outline"
+                    onClick={() => removeFromCart(item.id)}
+                >
+                    <i className="far fa-trash-alt" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     )

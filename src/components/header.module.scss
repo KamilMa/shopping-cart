@@ -1,9 +1,27 @@
+@mixin hoover {
+  text-decoration: none;
+  color: #0971e0;
+}
+
 .menu {
     list-style: none;
-    display: flex;
     padding-left: 0;
     margin-bottom: 0;
     li {
         margin-left: 10px;
+        a {
+          font-size: 18px;
+          font-weight: bold;
+          &:hover {
+            @include hoover;
+          }
+        }
     }
+  }
+ 
+.shoppingCartt {
+  &:hover {
+    @include hoover;
+  }
 }
+

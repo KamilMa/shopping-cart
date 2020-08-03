@@ -8,3 +8,19 @@
          outline: none !important;
          box-shadow: none;
 }
+.items-header {
+    border: 1px solid #DFDFDF;
+}
+
+.item-wrapper {
+    border-bottom: 1px solid #DFDFDF;
+}
+
+@media (max-width: 767px) {
+
+
+    .item-increase,
+    .item-remove {
+        border-left: 1px solid #DFDFDF;
+    }
+}

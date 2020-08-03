@@ -5,7 +5,7 @@ import { CartContext } from '../context/CartContext'
 import styles from './header.module.scss'
 
 const Header = () => {
-    const { cartItems, total } = useContext(CartContext)
+    const { total } = useContext(CartContext)
 
     return (
         <header>
@@ -14,15 +14,15 @@ const Header = () => {
                     <div className="col-4"></div>
                     <div className="col-4 d-flex justify-content-center align-items-center">
                         <nav className="d-flex align-items-center">
-                            <ul className={styles.menu}>
-                                <li><Link to='/'>Products</Link></li>
-                                <li><Link to='/cart'>Cart</Link></li>
+                            <ul className={`d-flex text-primary ${styles.menu}`}>
+                                <li><Link className="linkItem" to='/'>Products</Link></li>
+                                <li><Link className="linkItem" to='/cart'>Cart</Link></li>
                             </ul>
                         </nav>
                     </div>
                     <div className="col-4 text-right">
-                        <Link to='/cart'>
-                            <i class="fas fa-shopping-cart"></i>
+                        <Link className={styles.shoppingCartt} to='/cart'>
+                            <i className="fas fa-shopping-cart"></i>
                             <span>({total})</span>
                         </Link>
                     </div>

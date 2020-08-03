@@ -4,11 +4,14 @@ import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE, DECREASE } from '../reducers/act
 
 export const CartContext = createContext()
 
-const initialState = { cartItems: [] }
+const cartItems = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+const total = cartItems.reduce((prev, curr) => prev + curr.quantity, 0)
+
+const initialState = { cartItems, total }
 
 const CartContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initialState)
-    // console.log(state)
+
     const addToCart = payload => {
         dispatch({ type: ADD_PRODUCT, payload })
     }

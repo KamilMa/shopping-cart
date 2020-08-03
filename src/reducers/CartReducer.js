@@ -1,6 +1,7 @@
 import { ADD_PRODUCT, REMOVE_PRODUCT, INCREASE, DECREASE } from './actionTypes'
 
 export const totalProducts = cartItems => {
+    localStorage.setItem('cart', JSON.stringify(cartItems.length > 0 ? cartItems : []))
     let total = cartItems.reduce((prev, curr) => prev + curr.quantity, 0)
     return { total }
 }
