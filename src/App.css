@@ -17,8 +17,6 @@
 }
 
 @media (max-width: 767px) {
-
-
     .item-increase,
     .item-remove {
         border-left: 1px solid #DFDFDF;
