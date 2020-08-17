@@ -1,9 +1,12 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
+import { buttonStyle } from './Cart.module.scss'
+
+
 const CartItem = ({ item }) => {
     const { removeFromCart, increase, decrease } = useContext(CartContext)
-    const buttonStyle = { fontSize: "11px", color: "red" }
+
 
     return (
         <div className="row item-wrapper py-3 my-3 my-md-2">
@@ -21,15 +24,13 @@ const CartItem = ({ item }) => {
             <div className="col-4 col-md-2 text-center item-increase d-md-flex align-items-center justify-content-center">
                 <span className="d-block d-md-none">Inc/Dcs</span>
                 <button
-                    style={buttonStyle}
-                    className="btn btn-danger-outline"
+                    className={`btn btn-outline-success ${buttonStyle}`}
                     onClick={() => increase(item.id)}
                 >
                     <i className="fa fa-arrow-up" aria-hidden="true"></i>
                 </button>
                 <button
-                    style={buttonStyle}
-                    className="btn btn-danger-outline"
+                    className={`btn btn-outline-success ${buttonStyle}`}
                     onClick={() => decrease(item.id)}
                 >
                     <i className="fa fa-arrow-down" aria-hidden="true"></i>
@@ -38,8 +39,7 @@ const CartItem = ({ item }) => {
             <div className="col-4 col-md-2 text-center item-remove d-md-flex align-items-center justify-content-center">
                 <span className="d-block d-md-none">Usuń</span>
                 <button
-                    style={buttonStyle}
-                    className="btn btn-danger-outline"
+                    className={`btn btn-outline-success ${buttonStyle}`}
                     onClick={() => removeFromCart(item.id)}
                 >
                     <i className="far fa-trash-alt" aria-hidden="true"></i>

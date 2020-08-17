@@ -2,14 +2,14 @@ import React, { useContext } from 'react'
 import ProductItem from './ProductItem'
 import { ProductsContext } from '../../context/ProductsContext'
 
-import styles from './ProductsList.module.scss'
+import { productsGrid } from './Products.module.scss'
 
 const ProductsList = () => {
 
     const { products } = useContext(ProductsContext)
 
     return (
-        <div className={styles.products}>
+        <div className={productsGrid}>
             {
                 products.map(product => (
                     <ProductItem key={product.id} product={product} />
