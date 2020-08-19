@@ -17,7 +17,7 @@ const ProductItem = ({ product }) => {
                 <p className="card-subtitle my-1 text-muted">Size: {product.size.join(" / ")}</p>
                 <p className="card-text">{product.description}</p>
                 <div className="product-price d-flex justify-content-between align-items-center mt-4">
-                    <h5 className="text-success">$ {product.price}</h5>
+                    <h5 className="text-success">$ {product.price.toFixed(2)}</h5>
                     {isInCart(product) ? (<button
                         onClick={() => increase(product.id)}
                         className="btn btn-primary">

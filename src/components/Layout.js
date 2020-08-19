@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 const Layout = ({ children }) => (
     <div>
         <Header />
-        <main className="container">
+        <main className="container pb-5">
             {children}
         </main>
         <Footer />
