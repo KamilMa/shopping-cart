@@ -3,11 +3,13 @@
 <br>
 
 ## Technologies
-React
-React Router Dom
-React Redux
-React Hooks
-Scss
+<ul>
+<li>React</li>
+<li>React Router Dom</li>
+<li>React Redux</li>
+<li>React Hooks</li>
+<li>Scss</li>
+</ul>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
